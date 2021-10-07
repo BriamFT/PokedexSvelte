@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>About Svelte Kit Pokedex</title>
+
+		
+
+		<link rel="modulepreload" href="./_app/start-fb4fcf68.js">
+		<link rel="modulepreload" href="./_app/chunks/vendor-aad12eed.js">
+		<link rel="modulepreload" href="./_app/pages/__layout.svelte-deb7a808.js">
+		<link rel="modulepreload" href="./_app/pages/about.svelte-ab6b7ab4.js">
+		<link rel="stylesheet" href="./_app/assets/start-d5b4de3e.css">
+		<link rel="stylesheet" href="./_app/assets/pages/__layout.svelte-b614a8e3.css">
+
+		<script type="module">
+			import { start } from "./_app/start-fb4fcf68.js";
+			start({
+				target: document.body,
+				paths: {"base":"","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("./_app/pages/__layout.svelte-deb7a808.js"),
+						import("./_app/pages/about.svelte-ab6b7ab4.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "./about",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<nav class="flex justify-center w-full mt-6"><a class="mx-4 text-lg" href="./">Home</a><a class="mx-4 text-lg" href="./pokedex">Pokedex</a><a class="mx-4 text-lg" href="./about">About</a></nav>
+<main class="p-4 max-w-6xl mx-auto">
+
+<h1 class="text-4xl text-center m-8 uppercase font-bold">About</h1>
+<p>This is a really cool Svelte Kit demo that uses the Pokedex API to build a Pokedex</p>
+</main>
+
+
+
+			
+		</div>
+	</body>
+</html>
