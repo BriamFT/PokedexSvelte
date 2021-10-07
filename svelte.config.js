@@ -3,7 +3,7 @@ import adapter from '@sveltejs/adapter-static';
 export default {
 	kit: {
 		paths: {
-			base: 'https://github.com/BriamFT/PokedexSvelte.git',
+			base: 'https://briamft.github.io/PokedexSvelte/',
 		},
 		adapter: adapter({
 			// default options are shown
