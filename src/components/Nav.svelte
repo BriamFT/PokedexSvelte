@@ -1,8 +1,9 @@
 <script>
+    import { base } from '$app/paths';
     let routes = [
-        {endpoint: '/', label: 'Home'},
-        {endpoint: '/pokedex', label: 'Pokedex'},
-        {endpoint: '/about', label: 'About'},
+        {endpoint: `${base}/`, label: 'Home'},
+        {endpoint: `${base}/pokedex`, label: 'Pokedex'},
+        {endpoint: `${base}/about`, label: 'About'},
     ]
 </script>
 
