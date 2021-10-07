@@ -1,15 +1,19 @@
 import preprocess  from 'svelte-preprocess';
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess({		
-		defaults: {
-            style: 'postcss',
-        },
-        postcss: true,
+	preprocess: preprocess({
+        postcss: {
+            plugins: [
+                tailwind, 
+                autoprefixer
+            ]
+        }
     }),
 	kit: {
 		// By default, `npm run build` will create a standard Node app.
