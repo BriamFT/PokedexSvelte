@@ -28,7 +28,7 @@ const config = {
 
 		// Comment the paths if wants to run in dev mode.
 		paths: {
-			base: '/PokedexSvelte',
+			base: '/',
 		},
 
 		// hydrate the <div id="svelte"> element in src/app.html
