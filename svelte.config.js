@@ -27,9 +27,9 @@ const config = {
 		}),
 
 		// Comment the paths if wants to run in dev mode.
-		paths: {
-			base: '/',
-		},
+		// paths: {
+		// 	base: '',
+		// },
 
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
