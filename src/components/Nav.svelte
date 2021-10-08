@@ -1,8 +1,8 @@
 <script>
-    // import { base } from '$app/paths';
     let routes = [
         {endpoint: `/`, label: 'Home'},
         {endpoint: `/pokedex`, label: 'Pokedex'},
+        {endpoint: `/test`, label: 'Test'},
         {endpoint: `/about`, label: 'About'},
     ]
 </script>
