@@ -1,6 +1,5 @@
 <script>
     export let data;
-    console.log(data);
 </script>
 
 <div class="bg-gray-100 text-gray-800 text-center my-10 border-blue-600">

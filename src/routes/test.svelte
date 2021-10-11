@@ -1,21 +1,21 @@
 <script context="module">
+    import commonPagesPreloader from "../preloaders/common-pages";
     export const prerender = true;
-    export async function load() {
-        const url = `https://enkoder-website-002.azurewebsites.net/api/page/test`;
-        const response = await fetch(url)
-        const data = await response.json();
-        return {props: {data}};
+    export async function load({page}) {
+        console.log('LOAD FUNCTION');
+        return {props: commonPagesPreloader.call(this, page.path)}
     }
 </script>
 
 <script>
     import HtmlBlock from "../components/blocks/HtmlBlock.svelte";
     import QuoteBlock from "../components/blocks/QuoteBlock.svelte";
-    export let data;
     
     let components = [];
-    $: {
-        data.blocks.forEach(element => {
+    
+    export let blocks;
+    export function initializeBlocks(elements) {
+        elements.forEach(element => {
             switch (element.type.split('.')[3]) {
                 case 'HtmlBlock':
                     components = [...components, {name: HtmlBlock, props: element}];
@@ -24,8 +24,12 @@
                     components = [...components, {name: QuoteBlock, props: element}];
                     break;
             }
-
+            
         });
+    }
+     
+    $: {
+        initializeBlocks(blocks);
     }
 </script>
 
@@ -39,5 +43,4 @@
     {#each components as component}
         <svelte:component this={component.name} data = {component.props}/>
     {/each}
-  
 </div>
