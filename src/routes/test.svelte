@@ -8,16 +8,12 @@
 </script>
 
 <script>
-    import HtmlBlock from "../components/blocks/HtmlBlock.svelte";
-    import QuoteBlock from "../components/blocks/QuoteBlock.svelte";
-    import TextBlock from "../components/blocks/TextBlock.svelte";
-    import AudioBlock from "../components/blocks/AudioBlock.svelte";
     import PageLoading from "../components/PageLoading.svelte";
+    import Render from "../components/Render.svelte";
     
     import { onMount } from "svelte";
     import { isSSR } from '../stores/renderstore';
     
-    let components = [];
     export let blocks;
     export let blocksList = undefined;
     export let asyncBlockList = undefined;
@@ -38,32 +34,6 @@
             asyncBlockList = blocksList();
         }
     });
-
-    function initializeBlocks(elements) {
-        elements.forEach(element => {
-            switch (element.type.split('.')[3]) {
-                case 'HtmlBlock':
-                    components = [...components, {name: HtmlBlock, props: element}];
-                    break;
-                case 'QuoteBlock':
-                    components = [...components, {name: QuoteBlock, props: element}];
-                    break;
-                case 'TextBlock':
-                    components = [...components, {name: TextBlock, props: element}];
-                break;
-                case 'AudioBlock':
-                    components = [...components, {name: AudioBlock, props: element}];
-                break;
-            }
-            
-        });
-    }
-     
-    $: {
-        if($isSSR) {
-            initializeBlocks(blocks);
-        }
-    }
 </script>
 
 
@@ -77,21 +47,16 @@
         {#await asyncBlockList}
             <PageLoading />
         {:then blocks}
-            <p>CLIENT SIDE RENDERING</p>   
-            {initializeBlocks(blocks)}
-            {#each components as component}
-                <svelte:component this={component.name} data = {component.props}/>
-            {/each}
+            <p>CLIENT SIDE RENDERING</p> 
+            <Render blocks={blocks}/>
         {:catch error}
             <p style="color: red">{error.message}</p>
         {/await}
     {:else}
-        {#if blocks}
-            <p>SERVER SIDE RENDERING</p>
-            {#each components as component}
-                <svelte:component this={component.name} data = {component.props}/>
-            {/each} 
+        {#if blocks}  
+            <p>SERVER SIDE RENDERING</p> 
+            <Render blocks={blocks}/>
         {/if}       
     {/if}
-
+    
 </div>
