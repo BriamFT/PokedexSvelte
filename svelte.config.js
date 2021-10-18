@@ -8,6 +8,8 @@ const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: preprocess({
+		defaults: {markup: 'html', script: 'javascript', style: 'css'},
+		sourceMap: true,
         postcss: {
             plugins: [
                 tailwind, 
