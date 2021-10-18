@@ -36,7 +36,6 @@
     });
 </script>
 
-
 <svelte:head>
     <title>Test Piranha CMS</title>
 </svelte:head>
@@ -58,5 +57,4 @@
             <Render blocks={blocks}/>
         {/if}       
     {/if}
-    
 </div>

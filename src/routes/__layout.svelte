@@ -1,14 +1,9 @@
 <script>
     import Nav from '../components/Nav.svelte';
+    import '../tailwind.css';
 </script>
 
 <Nav/>
-<main class="p-4 max-w-6xl mx-auto">
+<main class="w-screen mx-auto">
     <slot></slot>
 </main>
-
-<style global lang="postcss">
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-</style>

@@ -36,14 +36,16 @@
 <svelte:head>
     <title>Svelte Kit Pokedex</title>
 </svelte:head>
+<div class="max-w-6xl mx-auto px-4">
+    <h1 class="text-4xl text-center m-8 uppercase font-bold">Svelte Kit Pokedex</h1>
 
-<h1 class="text-4xl text-center m-8 uppercase font-bold">Svelte Kit Pokedex</h1>
+    <input class="w-full rounded-md text-lg p-4 border-2 border-gray-200" bind:value={searchTerm} type="text" placeholder="Search Pokemon">
 
-<input class="w-full rounded-md text-lg p-4 border-2 border-gray-200" bind:value={searchTerm} type="text" placeholder="Search Pokemon">
-
-<div class="py-4 grid gap-4 md:grid-cols-2 grid-cols-1">
-    {#each filteredPokemon as poke}
-        <PokemonCard pokemon={poke}/>
-    {/each}
+    <div class="py-4 grid gap-4 md:grid-cols-2 grid-cols-1">
+        {#each filteredPokemon as poke}
+            <PokemonCard pokemon={poke}/>
+        {/each}
+    </div>
 </div>
+
 
